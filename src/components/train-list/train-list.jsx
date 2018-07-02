@@ -1,6 +1,7 @@
 import React from 'react';
 import { getDepartures } from '../../scripts/service';
 import { stationCodes } from '../../scripts/constants';
+import TrainDetails from '../train-details/train-details.jsx';
 
 export default class TrainList extends React.Component {
     constructor(props) {
@@ -17,8 +18,12 @@ export default class TrainList extends React.Component {
     }
 
     render() {
-        return (
-            <p>Trainlist {this.state.departures && this.state.departures.length}</p>
+        const { departures } = this.state;
+
+        const trainList = departures.map((train, index) =>
+            <TrainDetails key={index} train={train} />
         );
+
+        return trainList;
     }
 }
