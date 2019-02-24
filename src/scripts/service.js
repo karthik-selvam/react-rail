@@ -1,6 +1,6 @@
-export const service = {
-    appID: '2a373638',
-    appKey: 'ccc63563f288d782d0b4152a01f7d10c'
+const service = {
+    appID: process.env.APP_ID,
+    appKey: process.env.APP_KEY,
 }
 
 export async function getDepartures() {

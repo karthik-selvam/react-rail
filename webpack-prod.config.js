@@ -1,4 +1,5 @@
 const path = require('path');
+const Dotenv = require('dotenv-webpack');
 
 module.exports = {
     mode: 'production',
@@ -21,4 +22,12 @@ module.exports = {
             use: ['babel-loader']
         }]
     },
+    plugins: [
+        new Dotenv({
+            path: './.env',
+            safe: true,
+            silent: true,
+            defaults: false,
+        })
+    ],
 };
